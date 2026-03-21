@@ -24,7 +24,6 @@
 
 **Blog técnico sobre Infraestrutura, DevOps e Automação de Redes**
 
-[![Deploy](https://github.com/RosnerTech/rosnertech-blog/actions/workflows/deploy.yml/badge.svg)](https://github.com/RosnerTech/rosnertech-blog/actions/workflows/deploy.yml)
 [![Astro](https://img.shields.io/badge/Astro-4.x-FF5D01?style=flat&logo=astro&logoColor=white)](https://astro.build)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com)
 [![License](https://img.shields.io/badge/License-MIT-52b788?style=flat)](LICENSE)
