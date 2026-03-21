@@ -1,0 +1,119 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts    = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const fmt = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
+
+const tagColors: Record<string,string> = {
+  docker:  'bg-[rgba(14,165,233,.12)] text-[#60a5fa] border-[rgba(14,165,233,.18)]',
+  linux:   'bg-[rgba(167,139,250,.12)] text-[#c084fc] border-[rgba(167,139,250,.18)]',
+  n8n:     'bg-[rgba(82,183,136,.12)] text-[#52b788] border-[rgba(82,183,136,.18)]',
+  proxmox: 'bg-[rgba(248,113,113,.12)] text-[#f87171] border-[rgba(248,113,113,.18)]',
+  zabbix:  'bg-[rgba(251,191,36,.12)] text-[#fbbf24] border-[rgba(251,191,36,.18)]',
+  python:  'bg-[rgba(52,211,153,.12)] text-[#34d399] border-[rgba(52,211,153,.18)]',
+  default: 'bg-[rgba(82,183,136,.08)] text-[#52b788] border-[rgba(82,183,136,.15)]',
+};
+const tc = (t: string) => tagColors[t.toLowerCase()] ?? tagColors.default;
+---
+<Base title="Posts">
+  <div class="max-w-[1100px] mx-auto px-7 py-12">
+    <div class="mb-10">
+      <p class="text-[10px] text-[#52b788] tracking-[.12em] uppercase mb-2">// todos os posts</p>
+      <h1 class="font-sans text-3xl font-extrabold tracking-tight mb-2">{posts.length} tutoriais</h1>
+      <p class="font-mono text-[13px] text-[#5a6b54]">Docker · Linux · n8n · Python · Proxmox · Cisco · Palo Alto</p>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-10" id="tag-filter">
+      <button data-tag="all"
+        class="tag-btn active font-mono text-[11px] px-3 py-1.5 rounded-lg
+               border border-[#52b788] bg-[rgba(82,183,136,.1)] text-[#52b788] cursor-pointer transition-all">
+        Todos ({posts.length})
+      </button>
+      {allTags.map(tag => (
+        <button data-tag={tag}
+          class="tag-btn font-mono text-[11px] px-3 py-1.5 rounded-lg
+                 border border-white/10 text-[#5a6b54] cursor-pointer
+                 hover:border-white/20 hover:text-[#e6ede0] transition-all">
+          {tag} ({posts.filter(p => p.data.tags.includes(tag)).length})
+        </button>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="posts-grid">
+      {posts.map(post => (
+        <a href={`/blog/${post.slug}`}
+           data-tags={post.data.tags.join(',')}
+           class="post-card group bg-[#111510] border border-white/[0.06] rounded-xl p-6 flex flex-col gap-3
+                  hover:border-white/10 hover:-translate-y-0.5 hover:bg-[#171e13]
+                  transition-all duration-200 relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#52b788] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="flex flex-wrap gap-1.5">
+            {post.data.tags.slice(0,3).map(tag => (
+              <span class={`text-[10px] font-mono px-1.5 py-0.5 rounded border font-medium tracking-wide ${tc(tag)}`}>{tag}</span>
+            ))}
+          </div>
+          <h2 class="font-sans text-[14px] font-bold leading-snug tracking-tight">{post.data.title}</h2>
+          <p class="font-mono text-[11.5px] text-[#5a6b54] leading-relaxed flex-1">{post.data.description}</p>
+          <div class="flex items-center justify-between font-mono text-[10px] text-[#5a6b54] mt-1">
+            <time>{fmt.format(post.data.pubDate)}</time>
+            <span class="text-[#60a5fa]">{Math.max(1, Math.round(post.body.split(/\s+/).length / 250))} min →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <p id="no-results" class="hidden text-center font-mono text-[13px] text-[#5a6b54] py-16">Nenhum post encontrado.</p>
+  </div>
+</Base>
+<script>
+  const buttons  = document.querySelectorAll<HTMLButtonElement>('.tag-btn');
+  const cards    = document.querySelectorAll<HTMLElement>('.post-card');
+  const noResult = document.getElementById('no-results');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag!;
+      buttons.forEach(b => {
+        b.classList.remove('border-[#52b788]','bg-[rgba(82,183,136,.1)]','text-[#52b788]');
+        b.classList.add('border-white/10','text-[#5a6b54]');
+      });
+      btn.classList.add('border-[#52b788]','bg-[rgba(82,183,136,.1)]','text-[#52b788]');
+      btn.classList.remove('border-white/10','text-[#5a6b54]');
+      let visible = 0;
+      cards.forEach(card => {
+        const show = tag === 'all' || (card.dataset.tags?.split(',') ?? []).includes(tag);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      noResult?.classList.toggle('hidden', visible > 0);
+    });
+  });
+</script>
+
+<!-- botão flutuante voltar ao topo -->
+<button id="back-to-top"
+  class="fixed bottom-6 right-6 z-40 w-10 h-10 rounded-full
+         bg-[#111510] border border-[rgba(82,183,136,0.3)]
+         text-[#52b788] text-lg
+         flex items-center justify-content-center
+         opacity-0 pointer-events-none
+         hover:bg-[rgba(82,183,136,0.1)] transition-all duration-200"
+  aria-label="Voltar ao topo">
+  ↑
+</button>
+
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn?.classList.remove('opacity-0', 'pointer-events-none');
+      btn?.classList.add('opacity-100');
+    } else {
+      btn?.classList.add('opacity-0', 'pointer-events-none');
+      btn?.classList.remove('opacity-100');
+    }
+  });
+  btn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>

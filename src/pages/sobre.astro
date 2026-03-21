@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Sobre" description="Rosner Pelaes Nascimento — System Engineer, DevOps e automação de redes.">
+  <div class="max-w-[800px] mx-auto px-7 py-16">
+
+    <!-- header com foto -->
+    <div class="flex items-start gap-8 mb-12">
+      <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-[rgba(82,183,136,0.3)] flex-shrink-0 bg-[#2d6a4f] flex items-center justify-content-center">
+        <img src="/foto-perfil.jpg" alt="Rosner Pelaes Nascimento"
+             class="w-full h-full object-cover"
+             onerror="this.style.display='none'"/>
+      </div>
+      <div>
+        <p class="text-[10px] text-[#52b788] tracking-[.12em] uppercase mb-2">// sobre mim</p>
+        <h1 class="font-sans text-3xl font-extrabold tracking-tight mb-1">Rosner Pelaes Nascimento</h1>
+        <p class="font-mono text-[13px] text-[#52b788] mb-4">System Engineer · Piracicaba, SP</p>
+        <div class="flex gap-2 flex-wrap">
+          {[
+            { label: 'YouTube',   href: 'https://youtube.com/@rosnertech' },
+            { label: 'GitHub',    href: 'https://github.com/RosnerTech' },
+            { label: 'LinkedIn',  href: 'https://linkedin.com/in/rosner-pelaes-nascimento' },
+            { label: 'Docker Hub',href: 'https://hub.docker.com/u/rosnertech' },
+          ].map(l => (
+            <a href={l.href} target="_blank"
+               class="font-mono text-[11px] px-3 py-1.5 rounded-lg border border-white/10
+                      text-[#5a6b54] hover:text-[#52b788] hover:border-[rgba(82,183,136,0.3)] transition-all">
+              {l.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- conteúdo em HTML puro -->
+    <div class="space-y-8 font-mono text-[13px] text-[#c8d5c0] leading-relaxed">
+
+      <div>
+        <h2 class="font-sans text-xl font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-4">Quem sou</h2>
+        <p>Sou <strong class="text-[#e6ede0]">System Engineer</strong> com mais de <strong class="text-[#e6ede0]">12 anos de experiência</strong> em infraestrutura, redes e automação. Atualmente com foco em <strong class="text-[#e6ede0]">Network Automation</strong>, <strong class="text-[#e6ede0]">Infrastructure as Code</strong> e ambientes Cloud escaláveis.</p>
+        <p class="mt-3">Atuo no design, desenvolvimento e operação de soluções automatizadas utilizando <strong class="text-[#e6ede0]">Python</strong>, <strong class="text-[#e6ede0]">APIs</strong> e <strong class="text-[#e6ede0]">pipelines de CI/CD</strong> — sempre buscando redução de trabalho manual e aumento de confiabilidade.</p>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-xl font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-4">Stack técnica</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {[
+            { label: 'Redes',          value: 'Cisco · Palo Alto · Juniper · MikroTik' },
+            { label: 'Automação',      value: 'Python · Netmiko · Nornir · Ansible' },
+            { label: 'Containers',     value: 'Docker · Kubernetes (lab)' },
+            { label: 'Virtualização',  value: 'Proxmox · VMware' },
+            { label: 'Monitoramento',  value: 'Zabbix · Grafana · Prometheus' },
+            { label: 'Cloud',          value: 'AWS (VPC, networking) · Azure' },
+            { label: 'IaC',            value: 'Terraform · Ansible' },
+            { label: 'CI/CD',          value: 'GitHub Actions · GitLab CI' },
+          ].map(item => (
+            <div class="bg-[#111510] border border-white/[0.06] rounded-lg px-4 py-3">
+              <span class="text-[#52b788] text-[10px] uppercase tracking-wider">{item.label}</span>
+              <p class="text-[#c8d5c0] text-[12px] mt-1">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-xl font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-4">Sobre o blog</h2>
+        <p>O RosnerTech nasceu da necessidade de documentar o que aprendo no dia a dia. Tutoriais técnicos sobre Docker, Linux, n8n, automação de redes e muito mais — sem enrolação, direto ao ponto.</p>
+        <p class="mt-3">Você também pode me encontrar no <a href="https://youtube.com/@rosnertech" target="_blank" class="text-[#52b788] hover:underline">YouTube</a> onde publico vídeos sobre os mesmos temas.</p>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-xl font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-4">Contato</h2>
+        <p>Entre em contato pelo <a href="https://linkedin.com/in/rosner-pelaes-nascimento" target="_blank" class="text-[#52b788] hover:underline">LinkedIn</a> ou pelo e-mail <strong class="text-[#e6ede0]">contato@rosnertech.com.br</strong></p>
+      </div>
+
+    </div>
+  </div>
+</Base>

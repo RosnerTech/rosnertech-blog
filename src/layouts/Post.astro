@@ -1,0 +1,123 @@
+---
+import Base from './Base.astro';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props { post: CollectionEntry<'blog'> }
+const { post } = Astro.props;
+const { title, description, pubDate, tags, updatedDate } = post.data;
+const { Content, headings } = await post.render();
+
+// formatar datas em pt-BR com timezone correto
+const fmt = new Intl.DateTimeFormat('pt-BR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'America/Sao_Paulo',
+});
+const pubStr = fmt.format(pubDate);
+const updStr = updatedDate ? fmt.format(updatedDate) : null;
+const readTime = Math.max(1, Math.round(post.body.split(/\s+/).length / 250));
+
+const tagColors: Record<string,string> = {
+  docker:     'bg-[rgba(14,165,233,.12)] text-[#60a5fa] border-[rgba(14,165,233,.18)]',
+  linux:      'bg-[rgba(167,139,250,.12)] text-[#c084fc] border-[rgba(167,139,250,.18)]',
+  n8n:        'bg-[rgba(82,183,136,.12)] text-[#52b788] border-[rgba(82,183,136,.18)]',
+  proxmox:    'bg-[rgba(248,113,113,.12)] text-[#f87171] border-[rgba(248,113,113,.18)]',
+  zabbix:     'bg-[rgba(251,191,36,.12)] text-[#fbbf24] border-[rgba(251,191,36,.18)]',
+  python:     'bg-[rgba(52,211,153,.12)] text-[#34d399] border-[rgba(52,211,153,.18)]',
+  cisco:      'bg-[rgba(52,211,153,.12)] text-[#34d399] border-[rgba(52,211,153,.18)]',
+  grafana:    'bg-[rgba(251,191,36,.12)] text-[#fbbf24] border-[rgba(251,191,36,.18)]',
+  mariadb:    'bg-[rgba(14,165,233,.12)] text-[#60a5fa] border-[rgba(14,165,233,.18)]',
+  postgresql: 'bg-[rgba(14,165,233,.12)] text-[#60a5fa] border-[rgba(14,165,233,.18)]',
+  default:    'bg-[rgba(82,183,136,.08)] text-[#52b788] border-[rgba(82,183,136,.15)]',
+};
+const tc = (t: string) => tagColors[t.toLowerCase()] ?? tagColors.default;
+---
+<Base title={title} description={description}>
+  <div id="top" class="max-w-[1100px] mx-auto px-7 py-12 grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-12 items-start">
+
+    <article>
+      <header class="mb-8">
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          {tags.map(tag => (
+            <a href={`/tags/${tag.toLowerCase()}`}
+               class={`text-[10px] font-mono px-2 py-0.5 rounded border font-medium tracking-wide hover:opacity-80 transition-opacity ${tc(tag)}`}>
+              {tag}
+            </a>
+          ))}
+        </div>
+        <h1 class="font-sans text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-[#e6ede0] mb-4">{title}</h1>
+        <div class="flex flex-wrap items-center gap-3 text-[12px] text-[#5a6b54] pb-5 border-b border-white/[0.06]">
+          <time datetime={pubDate.toISOString()} class="text-[#52b788]">{pubStr}</time>
+          <span>·</span>
+          <span>{readTime} min de leitura</span>
+          {updStr && <><span>·</span><span>atualizado em {updStr}</span></>}
+        </div>
+      </header>
+
+      <div class="prose">
+        <Content/>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-white/[0.06] flex items-center justify-between">
+        <a href="/blog" class="font-mono text-[12px] text-[#5a6b54] hover:text-[#52b788] transition-colors">← todos os posts</a>
+        <a href="#top"  class="font-mono text-[12px] text-[#5a6b54] hover:text-[#52b788] transition-colors">↑ voltar ao topo</a>
+      </div>
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="hidden lg:block sticky top-[88px]">
+      {headings.length > 0 && (
+        <div class="bg-[#111510] border border-white/[0.06] rounded-xl p-4 mb-4">
+          <p class="text-[10px] text-[#5a6b54] uppercase tracking-widest mb-3">neste post</p>
+          <nav class="flex flex-col gap-0">
+            {headings.filter(h => h.depth <= 3).map(h => (
+              <span class={`text-[12px] text-[#74c69d] py-1.5 border-b border-white/[0.04] last:border-none leading-snug ${h.depth === 3 ? 'pl-3 text-[11px]' : ''}`}>
+                {h.text}
+              </span>
+            ))}
+          </nav>
+        </div>
+      )}
+
+      <div class="bg-[#111510] border border-white/[0.06] rounded-xl p-4">
+        <div class="w-14 h-14 rounded-full overflow-hidden mb-3 border-2 border-[rgba(82,183,136,0.3)]">
+          <img src="/foto-perfil.jpg" alt="Rosner"
+               class="w-full h-full object-cover"
+               onerror="this.parentElement.innerHTML='<div style=\'width:56px;height:56px;border-radius:50%;background:#2d6a4f;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:800;color:#95d5b2;font-family:Outfit,sans-serif\'>R</div>'"
+          />
+        </div>
+        <p class="font-sans text-[14px] font-bold mb-1">Rosner Nascimento</p>
+        <p class="text-[11px] text-[#5a6b54] leading-relaxed mb-3">
+          System Engineer · Infra · DevOps · Automação de redes com Python, Cisco, Palo Alto e Juniper.
+        </p>
+        <div class="flex gap-3 flex-wrap">
+          <a href="https://youtube.com/@rosnertech"  target="_blank" class="text-[10px] text-[#52b788] hover:underline">YouTube</a>
+          <a href="https://github.com/RosnerTech"    target="_blank" class="text-[10px] text-[#52b788] hover:underline">GitHub</a>
+          <a href="https://linkedin.com/in/rosner-pelaes-nascimento" target="_blank" class="text-[10px] text-[#52b788] hover:underline">LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Remark42 comentários -->
+      <div class="mt-4 bg-[#111510] border border-white/[0.06] rounded-xl p-4">
+        <p class="text-[10px] text-[#5a6b54] uppercase tracking-widest mb-3">comentários</p>
+        <div id="remark42"></div>
+        <script>
+          var remark_config = {
+            host: 'https://comments.blog.rosnertech.com.br',
+            site_id: 'rosnertech',
+            components: ['embed'],
+          };
+          (function(c){
+            for(var i=0;i<c.length;i++){
+              var d=document,s=d.createElement('script');
+              s.src=remark_config.host+'/web/'+c[i]+'.js';
+              s.defer=true;
+              (d.head||d.body).appendChild(s);
+            }
+          })(remark_config.components||['embed']);
+        </script>
+      </div>
+    </aside>
+  </div>
+</Base>

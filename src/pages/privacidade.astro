@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+const updated = '19 de março de 2026';
+const email   = 'contato@rosnertech.com.br';
+---
+<Base title="Política de Privacidade">
+  <div class="max-w-[800px] mx-auto px-7 py-16">
+    <p class="text-[10px] text-[#52b788] tracking-[.12em] uppercase mb-2">// legal</p>
+    <h1 class="font-sans text-3xl font-extrabold tracking-tight mb-2">Política de Privacidade</h1>
+    <p class="font-mono text-[12px] text-[#5a6b54] mb-10">Última atualização: {updated}</p>
+
+    <div class="space-y-8 font-mono text-[13px] text-[#c8d5c0] leading-relaxed">
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">1. Informações que coletamos</h2>
+        <p>O blog pode coletar os seguintes dados:</p>
+        <ul class="mt-2 space-y-1 pl-4">
+          <li class="before:content-['→'] before:text-[#52b788] before:mr-2"><strong class="text-[#e6ede0]">Dados de navegação:</strong> páginas visitadas, tempo de permanência, origem do acesso.</li>
+          <li class="before:content-['→'] before:text-[#52b788] before:mr-2"><strong class="text-[#e6ede0]">Cookies:</strong> preferência de consentimento.</li>
+          <li class="before:content-['→'] before:text-[#52b788] before:mr-2"><strong class="text-[#e6ede0]">Contato voluntário:</strong> e-mail enviado diretamente.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">2. Como usamos as informações</h2>
+        <ul class="space-y-1 pl-4">
+          <li class="before:content-['→'] before:text-[#52b788] before:mr-2">Análise de tráfego para melhorar o conteúdo.</li>
+          <li class="before:content-['→'] before:text-[#52b788] before:mr-2">Resposta a contatos enviados por e-mail.</li>
+          <li class="before:content-['→'] before:text-[#52b788] before:mr-2">Não vendemos ou compartilhamos dados com terceiros para fins comerciais.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">3. Cookies</h2>
+        <p>Utilizamos cookies de sessão e preferência. Você pode recusar pelo banner na primeira visita sem perder acesso ao conteúdo.</p>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">4. Serviços de terceiros</h2>
+        <ul class="space-y-1 pl-4">
+          <li class="before:content-['→'] before:text-[#52b788] before:mr-2">Google Analytics (analytics de navegação)</li>
+          <li class="before:content-['→'] before:text-[#52b788] before:mr-2">Google Fonts (carregamento de fontes)</li>
+          <li class="before:content-['→'] before:text-[#52b788] before:mr-2">GitHub (hospedagem de código)</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">5. Seus direitos (LGPD)</h2>
+        <p>Conforme a Lei 13.709/2018 você tem direito a confirmar, acessar, corrigir, excluir e revogar consentimento sobre seus dados. Solicite pelo e-mail <strong class="text-[#52b788]">{email}</strong></p>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">6. Contato</h2>
+        <p>Dúvidas: <strong class="text-[#52b788]">{email}</strong></p>
+      </div>
+
+    </div>
+  </div>
+</Base>

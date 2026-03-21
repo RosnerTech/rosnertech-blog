@@ -1,0 +1,152 @@
+---
+import Logo from '../components/Logo.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import '../styles/prose.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = 'Tutoriais de infraestrutura, DevOps e automação de redes.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content={description}/>
+  <meta property="og:title" content={`${title} · RosnerTech`}/>
+  <meta property="og:description" content={description}/>
+  <meta property="og:url" content={canonicalURL}/>
+  <link rel="canonical" href={canonicalURL}/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="sitemap" href="/sitemap-index.xml"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <title>{title} · RosnerTech</title>
+  <style>
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(82,183,136,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(82,183,136,.018) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    main { position: relative; z-index: 1; }
+
+    /* botão voltar ao topo */
+    #back-to-top {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 40;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: #111510;
+      border: 1px solid rgba(82,183,136,0.3);
+      color: #52b788;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: all .25s;
+    }
+    #back-to-top.visible   { opacity: 1; pointer-events: auto; }
+    #back-to-top:hover     { background: rgba(82,183,136,0.1); border-color: #52b788; }
+  </style>
+</head>
+<body class="bg-[#0c0f0a] text-[#e6ede0] font-mono antialiased min-h-screen">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-white/[0.06] bg-[rgba(12,15,10,0.88)] backdrop-blur-md">
+    <nav class="max-w-[1100px] mx-auto px-7 h-[72px] flex items-center justify-between">
+      <a href="/"><Logo size="md"/></a>
+      <ul class="flex items-center gap-1 list-none">
+        <li><a href="/blog"  class="text-[12px] text-[#5a6b54] px-3 py-1.5 rounded-md hover:text-[#e6ede0] hover:bg-[#171e13] transition-all">~/posts</a></li>
+        <li><a href="/tags"  class="text-[12px] text-[#5a6b54] px-3 py-1.5 rounded-md hover:text-[#e6ede0] hover:bg-[#171e13] transition-all">~/tags</a></li>
+        <li><a href="/sobre" class="text-[12px] text-[#5a6b54] px-3 py-1.5 rounded-md hover:text-[#e6ede0] hover:bg-[#171e13] transition-all">~/sobre</a></li>
+        <li><a href="https://youtube.com/@rosnertech" target="_blank"
+               class="text-[12px] text-[#52b788] px-3 py-1.5 rounded-md
+                      border border-[rgba(82,183,136,0.25)]
+                      hover:bg-[rgba(82,183,136,0.1)] transition-all">YouTube</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main><slot/></main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/[0.06] mt-16">
+    <div class="max-w-[1100px] mx-auto px-7 py-10">
+      <div class="flex items-center justify-between text-[13px] text-[#5a6b54]">
+        <span>© {new Date().getFullYear()} RosnerTech · Piracicaba, SP</span>
+        <nav class="flex gap-6">
+          <a href="https://youtube.com/@rosnertech"  target="_blank" class="hover:text-[#52b788] transition-colors">YouTube</a>
+          <a href="https://github.com/RosnerTech"    target="_blank" class="hover:text-[#52b788] transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/rosner-pelaes-nascimento" target="_blank" class="hover:text-[#52b788] transition-colors">LinkedIn</a>
+          <a href="/privacidade" class="hover:text-[#52b788] transition-colors">Privacidade</a>
+          <a href="/lgpd"        class="hover:text-[#52b788] transition-colors">LGPD</a>
+        </nav>
+      </div>
+      <div class="mt-5 pt-5 border-t border-white/[0.04] text-center">
+        <a href="https://astro.build" target="_blank" rel="noopener"
+           class="text-[12px] text-[#74c69d] hover:text-[#95d5b2] transition-colors tracking-wide">
+          feito com ♥ usando Astro
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Voltar ao topo">↑</button>
+  <CookieBanner/>
+
+  <script>
+    // botão copiar — seletor correto para shiki
+    document.querySelectorAll('pre.astro-code').forEach(pre => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-wrapper';
+      pre.parentNode?.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      const btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = 'copiar';
+      wrapper.appendChild(btn);
+
+      btn.addEventListener('click', async () => {
+        const text = (pre.querySelector('code')?.innerText || pre.innerText || '').trim();
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.cssText = 'position:fixed;opacity:0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+        btn.textContent = 'copiado!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'copiar'; btn.classList.remove('copied'); }, 2000);
+      });
+    });
+
+    // voltar ao topo
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => topBtn?.classList.toggle('visible', window.scrollY > 400));
+    topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

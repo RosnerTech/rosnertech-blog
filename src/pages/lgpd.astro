@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+const updated = '19 de março de 2026';
+const email   = 'contato@rosnertech.com.br';
+---
+<Base title="LGPD">
+  <div class="max-w-[800px] mx-auto px-7 py-16">
+    <p class="text-[10px] text-[#52b788] tracking-[.12em] uppercase mb-2">// legal</p>
+    <h1 class="font-sans text-3xl font-extrabold tracking-tight mb-2">LGPD — Lei Geral de Proteção de Dados</h1>
+    <p class="font-mono text-[12px] text-[#5a6b54] mb-10">Última atualização: {updated}</p>
+
+    <div class="space-y-8 font-mono text-[13px] text-[#c8d5c0] leading-relaxed">
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">O que é a LGPD?</h2>
+        <p>A <strong class="text-[#e6ede0]">Lei Geral de Proteção de Dados</strong> (Lei nº 13.709/2018) regula o tratamento de dados pessoais no Brasil, protegendo os direitos de liberdade e privacidade dos cidadãos.</p>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">Dados que tratamos</h2>
+        <div class="bg-[#111510] border border-white/[0.06] rounded-xl overflow-hidden">
+          <div class="grid grid-cols-3 text-[11px] text-[#52b788] uppercase tracking-wider px-4 py-2 border-b border-white/[0.06]">
+            <span>Dado</span><span>Finalidade</span><span>Base legal</span>
+          </div>
+          {[
+            ['Dados de navegação', 'Analytics', 'Legítimo interesse'],
+            ['Cookies de preferência', 'Lembrar consentimento', 'Consentimento'],
+            ['E-mail de contato', 'Responder dúvidas', 'Consentimento'],
+          ].map(row => (
+            <div class="grid grid-cols-3 px-4 py-2.5 border-b border-white/[0.04] last:border-none text-[12px]">
+              {row.map(cell => <span>{cell}</span>)}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">Seus direitos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+          {[
+            ['Confirmação', 'Saber se tratamos seus dados'],
+            ['Acesso', 'Obter cópia dos seus dados'],
+            ['Correção', 'Corrigir dados incorretos'],
+            ['Eliminação', 'Excluir dados desnecessários'],
+            ['Portabilidade', 'Receber dados em formato estruturado'],
+            ['Revogação', 'Cancelar consentimento a qualquer momento'],
+          ].map(([title, desc]) => (
+            <div class="bg-[#111510] border border-white/[0.06] rounded-lg px-4 py-3">
+              <span class="text-[#52b788] text-[11px] font-medium">{title}</span>
+              <p class="text-[12px] text-[#5a6b54] mt-0.5">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">Como exercer seus direitos</h2>
+        <p>Envie e-mail para <strong class="text-[#52b788]">{email}</strong> com assunto <strong class="text-[#e6ede0]">"LGPD — Solicitação"</strong>. Respondemos em até <strong class="text-[#e6ede0]">15 dias úteis</strong>.</p>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-lg font-bold text-[#e6ede0] border-l-2 border-[#52b788] pl-3 mb-3">Encarregado de Dados (DPO)</h2>
+        <p><strong class="text-[#e6ede0]">Rosner Pelaes Nascimento</strong><br/>
+        E-mail: <strong class="text-[#52b788]">{email}</strong><br/>
+        Localização: Piracicaba, SP — Brasil</p>
+      </div>
+
+    </div>
+  </div>
+</Base>

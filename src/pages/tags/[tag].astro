@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts  = await getCollection('blog', ({ data }) => !data.draft);
+  const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
+  return allTags.map(tag => ({
+    params: { tag: tag.toLowerCase() },
+    props:  { tag, posts: posts.filter(p => p.data.tags.includes(tag)).sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()) },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+const fmt = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+
+const tagColors: Record<string,string> = {
+  docker:  'bg-[rgba(14,165,233,.12)] text-[#60a5fa] border-[rgba(14,165,233,.18)]',
+  linux:   'bg-[rgba(167,139,250,.12)] text-[#c084fc] border-[rgba(167,139,250,.18)]',
+  n8n:     'bg-[rgba(82,183,136,.12)] text-[#52b788] border-[rgba(82,183,136,.18)]',
+  proxmox: 'bg-[rgba(248,113,113,.12)] text-[#f87171] border-[rgba(248,113,113,.18)]',
+  zabbix:  'bg-[rgba(251,191,36,.12)] text-[#fbbf24] border-[rgba(251,191,36,.18)]',
+  python:  'bg-[rgba(52,211,153,.12)] text-[#34d399] border-[rgba(52,211,153,.18)]',
+  default: 'bg-[rgba(82,183,136,.08)] text-[#52b788] border-[rgba(82,183,136,.15)]',
+};
+const tc = (t: string) => tagColors[t.toLowerCase()] ?? tagColors.default;
+---
+<Base title={`Tag: ${tag}`}>
+  <div class="max-w-[1100px] mx-auto px-7 py-12">
+    <div class="mb-10 flex items-center gap-4">
+      <a href="/tags" class="font-mono text-[12px] text-[#5a6b54] hover:text-[#52b788] transition-colors">← todas as tags</a>
+      <span class={`font-mono text-[12px] px-3 py-1 rounded border font-medium ${tc(tag)}`}>{tag}</span>
+      <span class="text-[12px] text-[#5a6b54]">{posts.length} posts</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {posts.map(post => (
+        <a href={`/blog/${post.slug}`}
+           class="group bg-[#111510] border border-white/[0.06] rounded-xl p-6 flex flex-col gap-3
+                  hover:border-white/10 hover:-translate-y-0.5 hover:bg-[#171e13]
+                  transition-all duration-200 relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#52b788] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <h2 class="font-sans text-[14px] font-bold leading-snug tracking-tight">{post.data.title}</h2>
+          <p class="font-mono text-[11.5px] text-[#5a6b54] leading-relaxed flex-1">{post.data.description}</p>
+          <div class="flex items-center justify-between font-mono text-[10px] text-[#5a6b54] mt-1">
+            <time>{fmt.format(post.data.pubDate)}</time>
+            <span class="text-[#60a5fa]">{Math.max(1, Math.round(post.body.split(/\s+/).length / 250))} min →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

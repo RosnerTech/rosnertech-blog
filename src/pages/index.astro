@@ -1,0 +1,252 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts    = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const featured = posts[0];
+const recent   = posts.slice(1, 7);
+
+const fmt = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+
+const tagColors: Record<string,string> = {
+  docker:  'bg-[rgba(14,165,233,.12)] text-[#60a5fa] border-[rgba(14,165,233,.18)]',
+  linux:   'bg-[rgba(167,139,250,.12)] text-[#c084fc] border-[rgba(167,139,250,.18)]',
+  n8n:     'bg-[rgba(82,183,136,.12)] text-[#52b788] border-[rgba(82,183,136,.18)]',
+  proxmox: 'bg-[rgba(248,113,113,.12)] text-[#f87171] border-[rgba(248,113,113,.18)]',
+  zabbix:  'bg-[rgba(251,191,36,.12)] text-[#fbbf24] border-[rgba(251,191,36,.18)]',
+  python:  'bg-[rgba(52,211,153,.12)] text-[#34d399] border-[rgba(52,211,153,.18)]',
+  default: 'bg-[rgba(82,183,136,.08)] text-[#52b788] border-[rgba(82,183,136,.15)]',
+};
+const tc = (t: string) => tagColors[t.toLowerCase()] ?? tagColors.default;
+
+// terminais rotativos
+const terminals = [
+  {
+    title: 'rosnertech@vps:~ deploy',
+    lines: [
+      { t: 'prompt', v: '➜' }, { t: 'cmd', v: 'git push origin main' },
+      { t: 'muted', v: '[GitHub Actions] Build iniciado...' },
+      { t: 'muted', v: '  ✔ npm ci' },
+      { t: 'muted', v: '  ✔ astro build' },
+      { t: 'ok', v: '  ✔ docker push ghcr.io/rosnertech/blog:latest' },
+      { t: 'ok', v: '  ✔ Deploy concluído em 1m48s' },
+      { t: 'blank', v: '' },
+      { t: 'prompt', v: '➜' }, { t: 'blink', v: '' },
+    ]
+  },
+  {
+    title: 'rosnertech@vps:~ automação',
+    lines: [
+      { t: 'prompt', v: '➜' }, { t: 'cmd', v: 'docker compose up -d' },
+      { t: 'muted', v: '[+] Running 4/4' },
+      { t: 'ok', v: ' ✔ postgres  Started' },
+      { t: 'ok', v: ' ✔ redis     Started' },
+      { t: 'ok', v: ' ✔ n8n       Started' },
+      { t: 'ok', v: ' ✔ nginx     Started' },
+      { t: 'blank', v: '' },
+      { t: 'prompt', v: '➜' }, { t: 'blink', v: '' },
+    ]
+  },
+  {
+    title: 'rosnertech@vps:~ network',
+    lines: [
+      { t: 'prompt', v: '➜' }, { t: 'cmd', v: 'python netmiko_cisco.py' },
+      { t: 'muted', v: 'Conectando em 47 devices...' },
+      { t: 'ok', v: ' ✔ SW-CORE-01   ok' },
+      { t: 'ok', v: ' ✔ FW-PAN-01    ok' },
+      { t: 'ok', v: ' ✔ RT-JUN-01    ok' },
+      { t: 'info', v: 'Configuração aplicada: 47/47' },
+      { t: 'blank', v: '' },
+      { t: 'prompt', v: '➜' }, { t: 'blink', v: '' },
+    ]
+  },
+  {
+    title: 'rosnertech@vps:~ proxmox',
+    lines: [
+      { t: 'prompt', v: '➜' }, { t: 'cmd', v: 'qm clone 9000 101 --name web-01' },
+      { t: 'ok', v: 'VM 101 criada a partir do template' },
+      { t: 'prompt', v: '➜' }, { t: 'cmd', v: 'qm start 101' },
+      { t: 'ok', v: 'VM 101 iniciada' },
+      { t: 'prompt', v: '➜' }, { t: 'cmd', v: 'ssh ubuntu@10.0.0.101' },
+      { t: 'info', v: 'ubuntu@web-01:~$' },
+      { t: 'blank', v: '' },
+      { t: 'prompt', v: '➜' }, { t: 'blink', v: '' },
+    ]
+  },
+];
+
+const stats = [
+  { num: `${posts.length}+`, label: 'TUTORIAIS' },
+  { num: '3 anos',           label: 'NO AR' },
+  { num: 'Docker',           label: 'CONTAINERS' },
+  { num: 'Python',           label: 'AUTOMAÇÃO' },
+  { num: 'Cisco',            label: 'REDES' },
+  { num: 'Proxmox',          label: 'VIRTUAL' },
+  { num: 'Zabbix',           label: 'MONITORING' },
+];
+---
+<Base title="Home">
+  <!-- HERO -->
+  <section class="max-w-[1100px] mx-auto px-7 pt-20 pb-14">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 items-start">
+
+      <!-- LEFT -->
+      <div>
+        <div class="flex items-center gap-2 text-[11px] text-[#52b788] tracking-[.12em] uppercase mb-5">
+          <span class="w-5 h-px bg-[#52b788]"></span>
+          Infra · DevOps · Automação de Redes
+        </div>
+        <h1 class="font-sans text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-[-0.03em] mb-5">
+          Do terminal<br>
+          à <span class="text-[#52b788]">produção</span><br>
+          <span class="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.18)]">sem mistério</span>
+        </h1>
+        <p class="font-mono text-[13px] text-[#5a6b54] leading-[1.85] max-w-[500px] mb-8">
+          Tutoriais técnicos sobre <span class="text-[#74c69d]">Docker</span>,
+          <span class="text-[#74c69d]">Linux</span>, <span class="text-[#74c69d]">n8n</span> e
+          <span class="text-[#74c69d]">Python</span> para automação de redes.
+        </p>
+        <div class="flex gap-3 flex-wrap mb-14">
+          <a href="/blog" class="font-mono text-[13px] font-medium bg-[#52b788] text-black px-5 py-2.5 rounded-lg hover:bg-[#74c69d] transition-colors">Ver todos os posts →</a>
+          <a href="/sobre" class="font-mono text-[13px] text-[#5a6b54] px-5 py-2.5 rounded-lg border border-white/10 hover:text-[#e6ede0] hover:border-white/20 transition-all">Sobre o autor</a>
+        </div>
+
+        <!-- STATS 2 linhas -->
+        <div class="border-t border-white/[0.06] pt-7 grid grid-cols-4 gap-x-7 gap-y-5">
+          {stats.map(s => (
+            <div class="flex flex-col gap-1">
+              <span class="font-sans text-[17px] font-bold">{s.num}</span>
+              <span class="text-[9px] text-[#5a6b54] uppercase tracking-wide">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- TERMINAL ROTATIVO -->
+      <div id="terminal-wrap">
+        {terminals.map((term, idx) => (
+          <div class={`terminal-slide bg-[#111510] border border-white/10 rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] ${idx !== 0 ? 'hidden' : ''}`}
+               data-idx={idx}>
+            <div class="bg-[#171e13] border-b border-white/[0.06] flex items-center gap-1.5 px-4 py-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#f87171]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#fbbf24]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#34d399]"></span>
+              <span class="font-mono text-[11px] text-[#5a6b54] mx-auto">{term.title}</span>
+            </div>
+            <div class="p-5 font-mono text-[12px] leading-[2.1] min-h-[220px]">
+              {term.lines.map(line => (
+                line.t === 'blank' ? <div>&nbsp;</div> :
+                line.t === 'blink' ? (
+                  <div>
+                    <span class="text-[#52b788]">➜</span>
+                    <span class="inline-block w-2 h-3.5 bg-[#52b788] align-middle ml-2 animate-[blink_1.1s_step-end_infinite]"></span>
+                  </div>
+                ) :
+                line.t === 'prompt' ? null :
+                <div class={{
+                  cmd:   'text-[#e6ede0]',
+                  muted: 'text-[#5a6b54]',
+                  ok:    'text-[#52b788]',
+                  info:  'text-[#60a5fa]',
+                }[line.t] ?? ''}>
+                  {line.t === 'cmd' && <span class="text-[#52b788] mr-2">➜</span>}
+                  {line.v}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-[1100px] mx-auto px-7">
+    <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  </div>
+
+  <!-- POSTS -->
+  <section class="max-w-[1100px] mx-auto px-7 py-14">
+    <div class="flex items-baseline justify-between mb-7">
+      <div>
+        <p class="text-[10px] text-[#52b788] tracking-[.1em] uppercase mb-1">// últimas publicações</p>
+        <h2 class="font-sans text-xl font-bold tracking-tight">Posts recentes</h2>
+      </div>
+      <a href="/blog" class="font-mono text-[12px] text-[#5a6b54] hover:text-[#52b788] transition-colors">ver todos →</a>
+    </div>
+
+    {featured && (
+      <a href={`/blog/${featured.slug}`}
+         class="group block bg-[#111510] border border-white/10 rounded-2xl overflow-hidden mb-5
+                grid grid-cols-1 md:grid-cols-2 hover:border-[rgba(82,183,136,0.3)] transition-colors">
+        <div class="p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              {featured.data.tags.slice(0,3).map(tag => (
+                <span class={`text-[10px] font-mono px-2 py-0.5 rounded border font-medium tracking-wide ${tc(tag)}`}>{tag}</span>
+              ))}
+            </div>
+            <h3 class="font-sans text-[22px] font-bold leading-snug tracking-tight mb-3 text-[#e6ede0]">{featured.data.title}</h3>
+            <p class="font-mono text-[12px] text-[#5a6b54] leading-relaxed">{featured.data.description}</p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 font-mono text-[11px] text-[#5a6b54]">
+            <time class="text-[#52b788]">{fmt.format(featured.data.pubDate)}</time>
+            <span>·</span>
+            <span>{Math.max(1, Math.round(featured.body.split(/\s+/).length / 250))} min</span>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center justify-center bg-[#0c0f0a] border-l border-white/[0.06] p-8">
+          <div class="font-mono text-[13px] text-[#52b788] opacity-60 text-center">
+            <div>$ docker compose up -d</div>
+            <div class="text-[#5a6b54] mt-1">// leia o post completo</div>
+          </div>
+        </div>
+      </a>
+    )}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {recent.map(post => (
+        <a href={`/blog/${post.slug}`}
+           class="group bg-[#111510] border border-white/[0.06] rounded-xl p-6 flex flex-col gap-3
+                  hover:border-white/10 hover:-translate-y-0.5 hover:bg-[#171e13]
+                  transition-all duration-200 relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#52b788] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="flex flex-wrap gap-1.5">
+            {post.data.tags.slice(0,2).map(tag => (
+              <span class={`text-[10px] font-mono px-1.5 py-0.5 rounded border font-medium tracking-wide ${tc(tag)}`}>{tag}</span>
+            ))}
+          </div>
+          <h3 class="font-sans text-[14px] font-bold leading-snug tracking-tight">{post.data.title}</h3>
+          <p class="font-mono text-[11.5px] text-[#5a6b54] leading-relaxed flex-1">{post.data.description}</p>
+          <div class="flex items-center justify-between font-mono text-[10px] text-[#5a6b54] mt-1">
+            <time>{fmt.format(post.data.pubDate)}</time>
+            <span class="text-[#60a5fa]">{Math.max(1, Math.round(post.body.split(/\s+/).length / 250))} min →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="flex justify-center mt-10">
+      <a href="/blog" class="font-mono text-[12px] text-[#5a6b54] border border-white/10 px-6 py-2.5 rounded-lg hover:text-[#e6ede0] hover:border-white/20 transition-all">
+        ver todos os {posts.length} posts →
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+</style>
+
+<script>
+  // terminal rotativo — troca a cada 4 segundos
+  const slides = document.querySelectorAll('.terminal-slide');
+  let current = 0;
+  if (slides.length > 1) {
+    setInterval(() => {
+      slides[current].classList.add('hidden');
+      current = (current + 1) % slides.length;
+      slides[current].classList.remove('hidden');
+    }, 4000);
+  }
+</script>
