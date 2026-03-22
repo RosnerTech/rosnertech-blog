@@ -8,8 +8,6 @@ wpId: 775
 draft: false
 ---
 
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalando e configurando o Screenfetch no Debian 12 Bookworm
 
 O Screenfetch é uma ferramenta de linha de comando que exibe informações concisas sobre o sistema operacional e o hardware do computador de forma visualmente agradável. Ele fornece um resumo das especificações do sistema, como distribuição Linux, versão do kernel, CPU, RAM e outras informações relevantes.
@@ -46,8 +44,6 @@ nano /home/rosnertech/.bashrc
 ```
 
 ## Role até o final do arquivo e adicione a seguinte linha:
-
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/08/Captura-de-tela-2023-08-30-113035.png)
 
 ```bash
 if [ -f /usr/bin/screenfetch ]; then screenfetch; fi

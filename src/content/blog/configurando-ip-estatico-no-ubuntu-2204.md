@@ -8,8 +8,6 @@ wpId: 1094
 draft: false
 ---
 
-/\*! elementor - v3.16.0 - 20-09-2023 \*/<br /> .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Configurando IP Estático no Ubuntu 22.04 com Netplan
 
 Neste tutorial, vou guiá-lo na configuração de um endereço IP estático em um sistema Ubuntu 22.04 usando o utilitário Netplan. O Netplan é usado para definir as configurações de rede por meio de arquivos YAML. Siga os passos abaixo: **Passo 1:** Abra um terminal. Você pode pressionar `Ctrl+Alt+T` para abrir um terminal diretamente. **Passo 2:** Acesse o diretório Netplan usando o comando `cd`:

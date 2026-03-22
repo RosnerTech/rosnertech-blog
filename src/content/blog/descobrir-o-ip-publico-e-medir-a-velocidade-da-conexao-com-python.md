@@ -8,8 +8,6 @@ wpId: 1220
 draft: false
 ---
 
-/\*! elementor - v3.18.0 - 20-12-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Descobrir o IP Público e Medir a Velocidade da Conexão com Python, Notificando via Telegram.
 
 ## Python** é uma linguagem de programação de alto nível e multiparadigma. É uma linguagem fácil de aprender e usar, e é amplamente utilizada para desenvolvimento de software, ciência de dados e aprendizado de máquina.

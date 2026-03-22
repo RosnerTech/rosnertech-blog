@@ -8,8 +8,6 @@ wpId: 1194
 draft: false
 ---
 
-/\*! elementor - v3.18.0 - 20-12-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Configuração Segura do Webroot no GLPI no Apache 2
 
 Neste tutorial, você aprenderá a configurar de maneira segura o diretório raiz do sistema GLPI (a partir da versão 10.0.7) utilizando a recomendação de segurança para a pasta pública. Essa medida ajuda a garantir que arquivos não públicos não possam ser acessados, proporcionando uma camada adicional de segurança.

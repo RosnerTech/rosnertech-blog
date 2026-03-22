@@ -8,8 +8,6 @@ wpId: 1556
 draft: false
 ---
 
-/\*! elementor - v3.23.0 - 05-08-2024 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Como Efetuar o Upload de uma ISO no Proxmox
 
 ## Introdução
@@ -27,8 +25,6 @@ Os arquivos ISO são úteis para realizar uma formatação limpa de um sistema o
 Baixar a ISO do OPNsense:
 
 Para baixar a ISO de instalação do OPNsense, consulte o site oficial [OPNsense Download](https://opnsense.org) e selecione a versão desejada. Escolha o arquivo .ISO adequado para sua instalação. Se precisar de mais assistência, entre em contato com o suporte técnico para obter o [link de download](https://opnsense.org/download/) direto.
-
-/\*! elementor - v3.23.0 - 05-08-2024 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/08/download_opnsense.png)
 
 ## Acessar o Proxmox VE:
 

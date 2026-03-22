@@ -8,8 +8,6 @@ wpId: 1435
 draft: false
 ---
 
-/\*! elementor - v3.21.0 - 08-05-2024 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Como Adicionar um Novo Disco Rígido ao Proxmox via Interface Web
 
 Neste tutorial, vamos guiá-lo pelo processo de adicionar um novo disco rígido ao Proxmox VE utilizando a interface web. Siga atentamente os passos abaixo para garantir um procedimento tranquilo e eficiente.
@@ -20,8 +18,6 @@ O Proxmox é uma plataforma de virtualização de código aberto baseada no kern
 
 Abra o navegador da web e insira o endereço IP do seu servidor Proxmox na barra de endereços.  
 Faça login na interface web do Proxmox utilizando suas credenciais de administrador.
-
-/\*! elementor - v3.21.0 - 08-05-2024 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/05/proxmox_09.png)
 
 ## Navegar até a guia de Armazenamento
 

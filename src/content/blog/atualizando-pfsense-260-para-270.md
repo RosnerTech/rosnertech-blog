@@ -8,8 +8,6 @@ wpId: 851
 draft: false
 ---
 
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Atualizando pfSense 2.6.0 para 2.7.0
 
 O pfSense 2.7.0 trouxe melhorias no desempenho do firewall, correções de problemas de UPnP relacionados à execução de vários sistemas de jogos na mesma rede e atualizações no OpenVPN.  
@@ -20,8 +18,6 @@ Antes de iniciar o processo de atualização, é fundamental fazer um backup das
 Acesse a interface web do pfSense digitando o endereço IP do servidor no navegador, normalmente **https://192.168.1.1** ou o endereço que você configurou anteriormente.  
 Faça login na interface usando suas credenciais de administrador.  
 No menu principal, clique em "Diagnostics" (Diagnósticos) e selecione "Backup/Restore" (Backup/Restaurar).
-
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/09/pfsense_01.png)
 
 Na guia "Backup", você verá várias opções de backup. Selecione "Backup" para fazer o backup completo das configurações do sistema.
 

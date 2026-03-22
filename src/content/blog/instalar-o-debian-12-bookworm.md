@@ -8,8 +8,6 @@ wpId: 889
 draft: false
 ---
 
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalar o Debian 12 Bookworm
 
 O Debian 12 traz uma grande expansão de software em comparação com o Bullseye, seu antecessor. Com mais de 11.089 novos pacotes, o número total de pacotes disponíveis agora ultrapassa 64.419. A maioria do software na distribuição foi atualizada, com cerca de 67% dos pacotes, ou seja, mais de 43.254 pacotes, oferecendo versões mais recentes.
@@ -41,8 +39,6 @@ Use uma ferramenta de sua preferência para criar um pendrive de boot com a imag
 ## Iniciando a instalação
 
 Insira o pendrive de boot e inicie o computador a partir dele. Assim que o sistema começar a carregar, escolha a opção "Graphical Install."
-
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/09/DEB-01.png)
 
 ## Configurando a instalação
 

@@ -8,8 +8,6 @@ wpId: 856
 draft: false
 ---
 
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalar MariaDB no Debian 12
 
 O MariaDB é um sistema de gerenciamento de banco de dados relacional de código aberto amplamente utilizado. Ele é uma substituição direta para o MySQL, conhecido por sua confiabilidade e desempenho. O MariaDB é usado para armazenar, gerenciar e recuperar dados em aplicativos e sites, oferecendo recursos avançados de manipulação de bancos de dados relacionais. É uma escolha popular entre desenvolvedores e empresas devido à sua escalabilidade e comunidade ativa de desenvolvedores.
@@ -20,8 +18,6 @@ O MariaDB é um sistema de gerenciamento de banco de dados relacional de código
 sudo apt update
 sudo apt upgrade
 ```
-
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![mariadb_01](https://blog.rosnertech.com.br/wp-content/uploads/2023/09/mariadb_01.png "mariadb_01")
 
 ## Instale o MariaDB no Debian 12.
 

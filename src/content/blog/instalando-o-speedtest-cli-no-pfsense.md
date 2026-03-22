@@ -8,8 +8,6 @@ wpId: 1372
 draft: false
 ---
 
-/\*! elementor - v3.21.0 - 15-04-2024 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalando o Speedtest CLI no pfSense: Teste a Velocidade da sua Conexão diretamente do Terminal
 
 A Speedtest CLI traz a tecnologia confiável e a rede global de servidores por trás do Speedtest para a linha de comando. Construído para desenvolvedores de software, administradores de sistemas e entusiastas de computadores, o Speedtest CLI é o primeiro aplicativo oficial do Speedtest nativo Linux apoiado pelo Ookla Site aplicação: https://www.speedtest.net/apps/cli

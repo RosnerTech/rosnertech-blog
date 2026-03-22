@@ -8,8 +8,6 @@ wpId: 546
 draft: false
 ---
 
-/\*! elementor - v3.14.0 - 26-06-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalando Zabbix 6.4 no Debian 11
 
 Zabbix é o nome dado a um software de monitoramento de rede. Essa ferramenta mede diversos aspectos da infraestrutura de uma empresa, tais como servidores, dispositivos de rede e outros tipos de máquinas. Esse software também cria relatórios em diversos formatos, tais como gráficos, listas e mapas, o que pode ser extremamente relevante para montar a estratégia da empresa e avaliar pontos importantes para o seu funcionamento.  
@@ -92,8 +90,6 @@ systemctl enable zabbix-server zabbix-agent apache2
 Acessar em seu navegador o _**IP\_DO\_SERVIDOR/zabbix**_.
 
 Selecionar o idioma e clicar em próximo passo.
-
-/\*! elementor - v3.14.0 - 26-06-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/03/zabbix01.png)
 
 Verificar se todos os pré-requisitos foram atendidos e clicar em próximo passo.
 

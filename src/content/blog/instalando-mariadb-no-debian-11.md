@@ -8,8 +8,6 @@ wpId: 499
 draft: false
 ---
 
-/\*! elementor - v3.14.0 - 26-06-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalando MariaDB no Debian 11
 
 O MySQL é um sistema gratuito de gerenciamento de banco de dados muito popular e também um componente importante da pilha LAMP. O MySQL foi substituído pelo MariaDB nos repositórios Debian, que é uma alternativa decente ao MySQL e praticamente executa todas as operações que o MySQL realiza. A versão mais recente dos pacotes MariaDB está disponível no repositório Debian 11 padrão. Assim, podemos instalá-lo diretamente usando o gerenciador de pacotes.  
@@ -34,8 +32,6 @@ mysql_secure_installation
 ```
 
 Para as duas primeiras opções, escolheremos ‘n’ e para as demais escolheremos ‘y’.
-
-/\*! elementor - v3.14.0 - 26-06-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/02/mysql_02.png)
 
 ## Criando usuário com permissão de autenticação.**  
 MariaDB utiliza usa o plugin unix\_socket, ele permite que o usuário use as credenciais do sistema operacional para se conectar no MariaDB via socket Unix, sendo recomendável definir um usuário com autenticação em senha, sendo assim, iremos criar um usuário.

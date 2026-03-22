@@ -8,8 +8,6 @@ wpId: 478
 draft: false
 ---
 
-/\*! elementor - v3.14.0 - 26-06-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalando GLPI 10.0.6 no Debian 11
 
 GLPI é uma solução web Open-source completa para gestão de ativos e helpdesk. O mesmo gerência todos os seus problemas de inventário de ativos/hardwares e software e suporte ao usuário(helpdesk). É uma excelente ferramenta para gestão de TI. Este software open source é escrito em PHP e distribuído sob licença GPL.
@@ -66,8 +64,6 @@ grant all on glpi.* to glpi identified by 'glpi';
 flush privileges;
 exit;
 ```
-
-## Agora acessaremos o navegador http://ipdoservidor/glpi/** /\*! elementor - v3.14.0 - 26-06-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/02/GLPI-1.png) **Aceitar os termos de licença e clicar em Continuar.** ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/02/GLPI-2.png)
 
 ## Clicar em instalar.  
 

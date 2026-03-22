@@ -8,8 +8,6 @@ wpId: 1308
 draft: false
 ---
 
-/\*! elementor - v3.19.0 - 07-02-2024 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Vagrant e Infraestrutura como Código: Simplificando o Provisionamento de Ambientes de Desenvolvimento
 
 Nos ambientes de desenvolvimento de software modernos, a automação é essencial para garantir eficiência, consistência e rapidez na implantação de infraestrutura. Neste contexto, o Vagrant surge como uma ferramenta poderosa, permitindo aos desenvolvedores criar e gerenciar ambientes de desenvolvimento de forma simples e eficaz, seguindo os princípios da Infraestrutura como Código (IaC). Neste artigo, exploraremos como o Vagrant simplifica o provisionamento de ambientes de desenvolvimento, alinhado com os conceitos de IaC.
@@ -56,8 +54,6 @@ Conexão à internet para baixar imagens de máquinas virtuais
 Acesse o site oficial do Vagrant em [https://www.vagrantup.com/](https://www.vagrantup.com/)  
 Clique no botão de download e escolha a versão compatível com o seu sistema operacional.  
 Siga as instruções de instalação fornecidas pelo instalador.
-
-/\*! elementor - v3.19.0 - 07-02-2024 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/02/vagrant_01.png) ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/02/vagrant_02.png) ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/02/vagrant_03.png) ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/02/vagrant_04.png)
 
 Após a conclusão da instalação, abra um terminal ou prompt de comando e digite vagrant --version para verificar se o Vagrant foi instalado corretamente. Você deve ver a versão do Vagrant instalada.
 
