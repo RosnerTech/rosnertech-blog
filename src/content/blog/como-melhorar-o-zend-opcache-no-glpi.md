@@ -8,11 +8,9 @@ wpId: 1101
 draft: false
 ---
 
-/\*! elementor - v3.16.0 - 09-10-2023 \*/<br /> .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Como Melhorar o Zend OPcache no GLPI
 
-Utilizando meu ambiente GLPI, constatei que o mesmo estava apresentando alto consumo de memória, o que impactava negativamente no desempenho do sistema. Após uma análise minuciosa das configurações do servidor, confirmei que o Zend OPcache e o APCu estavam contribuindo para esse consumo excessivo de memória. Como resultado, decidi ajustar as configurações desses dois componentes, com o objetivo de otimizar o uso de recursos e melhorar o desempenho do GLPI. /\*! elementor - v3.16.0 - 09-10-2023 \*/<br /> .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/10/zendOPcache.png)
+Utilizando meu ambiente GLPI, constatei que o mesmo estava apresentando alto consumo de memória, o que impactava negativamente no desempenho do sistema. Após uma análise minuciosa das configurações do servidor, confirmei que o Zend OPcache e o APCu estavam contribuindo para esse consumo excessivo de memória. Como resultado, decidi ajustar as configurações desses dois componentes, com o objetivo de otimizar o uso de recursos e melhorar o desempenho do GLPI. 
 
 #### O que é Zend OPcache?
 

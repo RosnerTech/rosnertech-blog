@@ -8,8 +8,6 @@ wpId: 1236
 draft: false
 ---
 
-/\*! elementor - v3.18.0 - 20-12-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Monitorar o MySQL usando Zabbix
 
 Monitorar o MySQL usando o Zabbix é crucial para garantir o desempenho, a estabilidade e a disponibilidade do banco de dados. Isso permite identificar e resolver problemas rapidamente, otimizar o uso de recursos e prevenir falhas, contribuindo para um ambiente de banco de dados mais eficiente e confiável.  
@@ -73,8 +71,6 @@ systemctl restart zabbix-agent
 
 ## Adicionando Template para Monitoramento:**  
 Acesse a interface do Zabbix Server e adicione o template "Template DB MySQL" ao host que deseja monitorar o Mysql. Isso permitirá que o servidor Zabbix comece a solicitar informações do MySQL.
-
-/\*! elementor - v3.18.0 - 20-12-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/01/zabbix_mysql_01.png) ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/01/zabbix_mysql_02.png) ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/01/zabbix_mysql_03.png) ![](https://blog.rosnertech.com.br/wp-content/uploads/2024/01/zabbix_mysql_04.png)
 
 ## Verificando Dados Coletados:
 

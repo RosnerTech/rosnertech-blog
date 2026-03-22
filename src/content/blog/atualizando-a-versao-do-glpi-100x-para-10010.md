@@ -8,8 +8,6 @@ wpId: 1002
 draft: false
 ---
 
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Atualizando a versão do GLPI 10.0.X para 10.0.10
 
 A versão 10.0.10 acaba de ser lançada no dia 25 de setembro de 2023! Esta atualização marca a 10ª edição da versão 10 e traz consigo uma série de melhorias importantes que merecem sua atenção.Fazendo uma cópia dos arquivos do GLPI. Antes de iniciar qualquer processo, é fundamental criar uma cópia de segurança de todos os arquivos do seu sistema GLPI.  
@@ -73,17 +71,6 @@ cp -r /caminho/para/o/diretorio_de_backup /caminho/para/seu/glpi
 Garanta que as permissões para a pasta do GLPI estejam configuradas corretamente.
 
 ```bash
-chmod 775 /var/www/html/* -Rf
-chown www-data:www-data /var/www/html/* -Rf
-```
-
-## Configurando o GLPI
-
-Agora, acesse o GLPI pelo seu navegador e siga as instruções nas telas de configuração para concluir o processo de atualização.
-
-## Alterar o seu idioma e clicar em OK.
-
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/09/glpi_01.png) **Aceitar os termos de licença e clicar em Continuar.** ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/09/glpi_02.png)
 
 Atenção nesse tela, pois queremos atualizar o ambiente.
 

@@ -8,8 +8,6 @@ wpId: 400
 draft: false
 ---
 
-/\*! elementor - v3.14.0 - 26-06-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalando o Docker no Ubuntu 22.04
 
 O Docker é uma plataforma de conteinerização extremamente popular que permite que os desenvolvedores criem e implantem aplicativos dentro de contêineres. Os contêineres são ambientes isolados que empacotam um aplicativo inteiro junto com suas dependências, bibliotecas, arquivos de configuração e tudo o que é necessário para executá-lo independentemente do ambiente de computação.
@@ -64,8 +62,6 @@ Verificando a versão do Docker
 ```bash
 docker --version
 ```
-
-/\*! elementor - v3.14.0 - 26-06-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/02/docker-02.png)
 
 ## Instalando Docker Compose.
 

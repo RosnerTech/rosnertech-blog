@@ -8,8 +8,6 @@ wpId: 576
 draft: false
 ---
 
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalar Windows Server 2022 no Proxmox
 
 O Windows Server 2022 apresenta segurança multicamada avançada, recursos híbridos com o Azure e uma plataforma de aplicativo flexível. Como parte dessa versão, estamos apresentando recursos de núcleo seguro para ajudar a proteger hardware, firmware e recursos do sistema operacional do Windows Server contra ameaças de segurança avançadas. O servidor de núcleo seguro se baseia em tecnologias como Windows Defender System Guard e Segurança baseada em Virtualização para minimizar riscos de vulnerabilidades de firmware e malware avançado. A nova versão também fornece conectividade protegida que introduz inúmeros recursos novos, como conexões HTTPS criptografadas mais rápidas e mais seguras, criptografia SMB AES 256 líder do setor e muito mais.
@@ -24,8 +22,6 @@ Clique em Criar VM no canto superior direito do Servidor Proxmox, onde surgirá 
 ****Nó****: Nome do seu Servidor Proxmox  
 ****ID VM****: Gerado automaticamente.  
 ****Nome****: Digite o nome da máquina virtual.
-
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/03/win-01.png)
 
 ## Configurando Sistema Operacional.
 

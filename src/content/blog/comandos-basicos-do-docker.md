@@ -8,8 +8,6 @@ wpId: 1231
 draft: false
 ---
 
-/\*! elementor - v3.18.0 - 20-12-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Comandos básicos do Docker
 
 O Docker é uma ferramenta poderosa que permite criar e gerenciar containers de software. Os containers são unidades de software empacotadas que contêm tudo o que é necessário para executar uma aplicação, incluindo o sistema operacional, os arquivos de configuração e os aplicativos.  

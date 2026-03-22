@@ -8,8 +8,6 @@ wpId: 790
 draft: false
 ---
 
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Instalando Raspberry Pi OS
 
 O Raspberry Pi OS é baseado no Debian, um popular sistema operacional Linux. Ele inclui uma ampla variedade de software pré-instalado, incluindo um navegador da web, um editor de texto, um reprodutor de música e um reprodutor de vídeo. Também inclui uma variedade de ferramentas de desenvolvimento, tornando-o uma ótima escolha para quem deseja aprender a programar.
@@ -43,8 +41,6 @@ No BalenaEtcher, clique no botão "Escolher imagem" e selecione a imagem do Rasp
 ## Selecione a unidade flash USB.
 
 No BalenaEtcher, clique no botão "Escolher dispositivo" e selecione a unidade flash USB que você conectou ao seu computador.
-
-/\*! elementor - v3.16.0 - 20-09-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/08/Captura-de-tela-2023-08-22-094000.png)
 
 ## Gravar a imagem.
 

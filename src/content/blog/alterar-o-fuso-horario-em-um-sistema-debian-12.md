@@ -8,8 +8,6 @@ wpId: 1178
 draft: false
 ---
 
-/\*! elementor - v3.17.0 - 08-11-2023 \*/ .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title\[class\*=elementor-size-\]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
-
 ## Alterando o fuso horário em um sistema Debian 12
 
 O termo "timezone" (ou "fuso horário" em português) refere-se à divisão da Terra em diferentes regiões, cada uma com seu próprio ajuste de tempo em relação ao Tempo Universal Coordenado (UTC). Os fusos horários são usados para padronizar e coordenar o tempo em diferentes partes do mundo.
@@ -41,8 +39,6 @@ Para verificar o fuso horário atual, use o seguinte comando:
 ```bash
 date
 ```
-
-/\*! elementor - v3.17.0 - 08-11-2023 \*/ .elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img\[src$=".svg"\]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block} ![](https://blog.rosnertech.com.br/wp-content/uploads/2023/11/timezone_01.png)
 
 ## 4\. Selecionar o Fuso Horário Desejado
 
