@@ -1,4 +1,8 @@
 # docker-compose.prod.yml — RosnerTech Blog (produção VPS)
+# Localização: /opt/docker/blog-rosnertech/docker-compose.prod.yml
+#
+# Crie o arquivo .env na mesma pasta com as variáveis necessárias
+# Nunca commite o .env no Git!
 
 services:
 
@@ -29,7 +33,7 @@ services:
     networks:
       - radagast_net
 
-  # ── Remark42 (comentários) ─────────────────────────────────
+  # ── Remark42 (comentários self-hosted) ────────────────────
   remark42:
     image: umputun/remark42:latest
     container_name: rosnertech-remark42
@@ -38,14 +42,35 @@ services:
       - TZ=America/Sao_Paulo
       - REMARK_URL=https://comments.blog.rosnertech.com.br
       - SITE=rosnertech
-      - SECRET=TROQUE_POR_UM_SECRET_FORTE_AQUI
-      - AUTH_ANON=false
-      - ADMIN_SHARED_EMAIL=contato@rosnertech.com.br
-      - NOTIFY_EMAIL_FROM=contato@rosnertech.com.br
-      - SMTP_HOST=smtp.gmail.com
-      - SMTP_PORT=587
-      - SMTP_USERNAME=contato@rosnertech.com.br
-      - SMTP_PASSWORD=SENHA_APP_GMAIL_AQUI
+      - SECRET=${REMARK_SECRET}
+
+      # moderação — todos os comentários aguardam aprovação
+      - ADMIN_SHARED_EMAIL=${NOTIFY_EMAIL}
+      - NOTIFY_ADMINS=email
+      - NOTIFY_EMAIL_FROM=${SMTP_FROM}
+
+      # anônimo permitido
+      - AUTH_ANON=true
+      - ANON_VOTE=false
+
+      # rate limit — máximo 5 comentários por hora por IP
+      - RATE_LIMIT=5
+
+      # login Google
+      - AUTH_GOOGLE_CID=${AUTH_GOOGLE_CID}
+      - AUTH_GOOGLE_CSEC=${AUTH_GOOGLE_CSEC}
+
+      # SMTP2GO
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SMTP_TLS=false
+      - SMTP_STARTTLS=true
+
+      # moderação obrigatória para anônimos
+      - ADMIN_PASSWD=${REMARK_ADMIN_PASSWD}
+
     volumes:
       - remark42_data:/srv/var
     expose:
