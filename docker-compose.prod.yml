@@ -1,11 +1,13 @@
 # docker-compose.prod.yml — RosnerTech Blog (produção VPS)
-# Localização: /opt/rosnertech/docker-compose.prod.yml
 
 services:
 
-  # ── Blog Astro ─────────────────────────────────────────────
+  # ── Blog Astro (build local na VPS) ───────────────────────
   blog:
-    image: ghcr.io/rosnertech/rosnertech-blog:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rosnertech-blog:latest
     container_name: rosnertech-blog
     restart: unless-stopped
     environment:
@@ -15,7 +17,7 @@ services:
     networks:
       - radagast_net
 
-  # ── Mídia WordPress (imagens antigas) ──────────────────────
+  # ── Mídia WordPress (imagens antigas) ─────────────────────
   wp-media:
     image: nginx:alpine
     container_name: rosnertech-wp-media
@@ -27,7 +29,7 @@ services:
     networks:
       - radagast_net
 
-  # ── Remark42 (comentários) ──────────────────────────────────
+  # ── Remark42 (comentários) ─────────────────────────────────
   remark42:
     image: umputun/remark42:latest
     container_name: rosnertech-remark42
@@ -39,15 +41,11 @@ services:
       - SECRET=TROQUE_POR_UM_SECRET_FORTE_AQUI
       - AUTH_ANON=false
       - ADMIN_SHARED_EMAIL=contato@rosnertech.com.br
-      # moderação: todos os comentários precisam de aprovação
-      - ADMIN_SHARED_ID=
       - NOTIFY_EMAIL_FROM=contato@rosnertech.com.br
       - SMTP_HOST=smtp.gmail.com
       - SMTP_PORT=587
       - SMTP_USERNAME=contato@rosnertech.com.br
       - SMTP_PASSWORD=SENHA_APP_GMAIL_AQUI
-      - AUTH_GOOGLE_CID=
-      - AUTH_GOOGLE_CSEC=
     volumes:
       - remark42_data:/srv/var
     expose:
