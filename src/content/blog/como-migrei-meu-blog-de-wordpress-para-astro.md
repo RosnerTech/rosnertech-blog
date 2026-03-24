@@ -12,15 +12,15 @@ Depois de quase 3 anos com WordPress + Elementor, tomei uma decisão que mudou c
 
 Neste post você vai ver o motivo dessa decisão, como foi o processo técnico de migração dos 80+ posts, a stack que montei e o que aprendi no caminho — incluindo os pontos negativos que ninguém costuma mencionar.
 
-<p>
-  <img src="https://img.shields.io/badge/Astro-4.x-FF5D01?style=flat&logo=astro&logoColor=white" alt="Astro"/>
-  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="TailwindCSS"/>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker"/>
-  <img src="https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white" alt="Nginx"/>
-  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
-  <img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white" alt="MariaDB"/>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white" alt="Node.js"/>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
+<p style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+  <img style="display:inline" src="https://img.shields.io/badge/Astro-4.x-FF5D01?style=flat&logo=astro&logoColor=white" alt="Astro"/>
+  <img style="display:inline" src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="TailwindCSS"/>
+  <img style="display:inline" src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker"/>
+  <img style="display:inline" src="https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white" alt="Nginx"/>
+  <img style="display:inline" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+  <img style="display:inline" src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white" alt="MariaDB"/>
+  <img style="display:inline" src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white" alt="Node.js"/>
+  <img style="display:inline" src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
 </p>
 
 > ⚠️ **Nota de segurança:** todos os nomes de containers, bancos de dados, usuários e senhas mostrados neste post são **fictícios e criados exclusivamente para fins didáticos**. Em ambiente real, nunca exponha credenciais em documentação, repositórios ou posts públicos. Use sempre variáveis de ambiente e arquivos `.env` fora do controle de versão.
