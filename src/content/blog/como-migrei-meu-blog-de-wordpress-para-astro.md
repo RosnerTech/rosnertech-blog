@@ -21,6 +21,8 @@ Neste post você vai ver o motivo dessa decisão, como foi o processo técnico d
   <img style="display:inline" src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white" alt="MariaDB"/>
   <img style="display:inline" src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white" alt="Node.js"/>
   <img style="display:inline" src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
+   <img style="display:inline" src="https://img.shields.io/badge/VS_Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code"/>
+  <img style="display:inline" src="https://img.shields.io/badge/Debian-A81D33?style=flat&logo=debian&logoColor=white" alt="Debian"/>
 </p>
 
 > ⚠️ **Nota de segurança:** todos os nomes de containers, bancos de dados, usuários e senhas mostrados neste post são **fictícios e criados exclusivamente para fins didáticos**. Em ambiente real, nunca exponha credenciais em documentação, repositórios ou posts públicos. Use sempre variáveis de ambiente e arquivos `.env` fora do controle de versão.
