@@ -24,6 +24,7 @@
 
 **Blog técnico sobre Infraestrutura, DevOps e Automação de Redes**
 
+[![Deploy](https://github.com/RosnerTech/rosnertech-blog/actions/workflows/deploy.yml/badge.svg)](https://github.com/RosnerTech/rosnertech-blog/actions/workflows/deploy.yml)
 [![Astro](https://img.shields.io/badge/Astro-4.x-FF5D01?style=flat&logo=astro&logoColor=white)](https://astro.build)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com)
 [![License](https://img.shields.io/badge/License-MIT-52b788?style=flat)](LICENSE)
@@ -76,15 +77,39 @@
 
 | Camada | Tecnologia |
 |--------|-----------|
-| Framework | [Astro 4.x](https://astro.build) |
+| Framework | [Astro 4.x](https://astro.build) — geração estática |
 | CSS | [Tailwind CSS 3.x](https://tailwindcss.com) |
 | Syntax Highlight | [Shiki](https://shiki.style) (tema github-dark) |
 | Comentários | [Remark42](https://remark42.com) (self-hosted) |
+| Autenticação | Google OAuth 2.0 |
 | Server | [Nginx](https://nginx.org) (Alpine) |
 | Container | [Docker](https://docker.com) + Docker Compose |
 | Proxy | [Nginx Proxy Manager](https://nginxproxymanager.com) |
+| CDN / DNS | [Cloudflare](https://cloudflare.com) |
 | CI/CD | [GitHub Actions](https://github.com/features/actions) |
-| VPS | Linux + Docker |
+| SMTP | [SMTP2GO](https://smtp2go.com) |
+| VPS | Linux + Docker (Debian) |
+
+---
+
+## ✨ Funcionalidades
+
+- ✅ 80+ posts migrados do WordPress
+- ✅ Listagem com filtro por tags
+- ✅ Páginas de tags com todos os posts
+- ✅ TOC (Table of Contents) na sidebar
+- ✅ Botão copiar código em todos os blocos
+- ✅ Sistema de comentários self-hosted (Remark42)
+- ✅ Login com Google para comentar
+- ✅ Notificação por e-mail de novos comentários
+- ✅ Banner LGPD / Cookies
+- ✅ Páginas: Sobre, Tags, Privacidade, LGPD
+- ✅ Redirecionamentos 301 dos posts do WordPress
+- ✅ Imagens do WordPress servidas via Nginx
+- ✅ Deploy automático via GitHub Actions
+- ✅ Botão voltar ao topo flutuante
+- ✅ Terminal rotativo na home (4 exemplos reais)
+- ✅ Design dark com identidade visual terminal
 
 ---
 
@@ -101,14 +126,14 @@ rosnertech-blog/
 │   │   └── CookieBanner.astro  # Banner LGPD
 │   ├── layouts/
 │   │   ├── Base.astro          # Layout base (nav + footer)
-│   │   └── Post.astro          # Layout de post (TOC + sidebar)
+│   │   └── Post.astro          # Layout de post (TOC + sidebar + comentários)
 │   ├── pages/
-│   │   ├── index.astro         # Home
+│   │   ├── index.astro         # Home com terminal rotativo
 │   │   ├── sobre.astro         # Sobre o autor
 │   │   ├── privacidade.astro   # Política de privacidade
 │   │   ├── lgpd.astro          # LGPD
 │   │   └── blog/
-│   │       ├── index.astro     # Listagem de posts
+│   │       ├── index.astro     # Listagem com filtro por tags
 │   │       └── [slug].astro    # Post individual
 │   ├── content/
 │   │   ├── config.ts           # Schema da coleção
@@ -118,10 +143,10 @@ rosnertech-blog/
 ├── public/
 │   ├── favicon.svg
 │   └── foto-perfil.jpg
-├── Dockerfile                  # Multi-stage build
-├── docker-compose.yml          # Dev local
-├── docker-compose.prod.yml     # Produção VPS
-├── nginx.conf                  # Config Nginx
+├── Dockerfile                  # Multi-stage: node:20-alpine → nginx:alpine
+├── docker-compose.yml          # Dev local (porta 4321)
+├── docker-compose.prod.yml     # Produção VPS (radagast_net)
+├── nginx.conf                  # Config Nginx + redirects 301
 ├── astro.config.mjs
 └── tailwind.config.mjs
 ```
@@ -132,57 +157,51 @@ rosnertech-blog/
 
 ### Pré-requisitos
 
-- Docker e Docker Compose instalados
+- Docker e Docker Compose
 - Git
 
 ### Subir em dev
 
 ```bash
-# clonar o repositório
-git clone git@github.com:RosnerTech/rosnertech-blog.git
+git clone https://github.com/RosnerTech/rosnertech-blog.git
 cd rosnertech-blog
 
-# subir em modo desenvolvimento (hot-reload)
 docker compose up --build -d
-
-# acompanhar logs
 docker compose logs -f
 
-# acessar
-open http://localhost:4321
+# acessar em http://localhost:4321
 ```
 
 ### Criar um novo post
 
 ```bash
-# criar arquivo na pasta de conteúdo
+# criar arquivo em src/content/blog/
 cat > src/content/blog/meu-novo-post.md << 'EOF'
 ---
 title: "Título do Post"
-description: "Descrição breve do post."
-pubDate: 2026-03-20
+description: "Descrição breve."
+pubDate: 2026-03-22
 tags: ["Docker", "Linux"]
 draft: false
 ---
 
-Conteúdo do post em Markdown...
+Conteúdo em Markdown...
 EOF
 
-# commitar na develop
 git checkout develop
-git add .
+git add src/content/blog/meu-novo-post.md
 git commit -m "post: título do post"
-git push
+git push origin develop
 ```
 
-### Publicar (deploy)
+### Publicar
 
 ```bash
-# criar PR: develop → main no GitHub
-# após merge, o GitHub Actions faz o deploy automaticamente
+# criar PR e fazer merge via GitHub CLI
+gh pr create --base main --head develop --title "post: título"
+gh pr merge --merge --delete-branch=false
 
-# ou deploy manual via GitHub Actions:
-# Actions → Deploy RosnerTech Blog → Run workflow
+# GitHub Actions faz o deploy automaticamente em ~2 min
 ```
 
 ---
@@ -199,14 +218,31 @@ GitHub (PR develop → main)
      │  merge aprovado
      ▼
 GitHub Actions
-     ├── SSH na VPS (porta 2222)
+     ├── SSH na VPS (porta 2222, usuário githubactions)
      ├── git pull origin main
-     ├── docker compose down
-     ├── docker compose up --build -d
+     ├── docker compose -f docker-compose.prod.yml down
+     ├── docker compose -f docker-compose.prod.yml up --build -d
      └── docker image prune -f
      │
      ▼
 blog.rosnertech.com.br ✅
+```
+
+---
+
+## 🏗️ Arquitetura de produção
+
+```
+Internet
+    ↓
+Cloudflare (proxy + SSL wildcard)
+    ↓
+Nginx Proxy Manager (gondor-nginx)
+    ├── blog.rosnertech.com.br      → rosnertech-blog:80
+    ├── blog.rosnertech.com.br/wp-content → rosnertech-wp-media:80
+    └── comments.rosnertech.com.br  → rosnertech-remark42:8080
+
+Rede interna: radagast_net
 ```
 
 ---
@@ -222,12 +258,21 @@ blog.rosnertech.com.br ✅
 
 ---
 
-## 📦 Deploy em produção
+## 🔒 Variáveis de ambiente (.env)
 
-```bash
-# na VPS — primeira vez
-cd /opt/docker/blog-rosnertech
-docker compose -f docker-compose.prod.yml up -d
+Crie `/opt/docker/blog-rosnertech/.env` na VPS baseado no `.env.example`:
+
+```env
+REMARK_SECRET=          # openssl rand -hex 32
+REMARK_ADMIN_PASSWD=    # senha do admin
+NOTIFY_EMAIL=           # e-mail para notificações
+SMTP_HOST=mail.smtp2go.com
+SMTP_PORT=2525
+SMTP_USERNAME=
+SMTP_PASSWORD=
+SMTP_FROM=
+AUTH_GOOGLE_CID=        # Google OAuth Client ID
+AUTH_GOOGLE_CSEC=       # Google OAuth Client Secret
 ```
 
 ---
