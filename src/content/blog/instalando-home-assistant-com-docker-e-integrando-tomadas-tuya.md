@@ -175,6 +175,8 @@ Informe:
 
 Ao concluir, o Home Assistant importa automaticamente todas as tomadas vinculadas, já com os sensores de **Corrente**, **Potência**, **Voltagem** e **Energia total**, além do controle de **Socket** (ligar/desligar).
 
+![Dashboard do Home Assistant com as tomadas Tuya integradas e consumo em tempo real](/img/home-assistant/08-dashboard-tomadas.png)
+
 ## 6. Verificação
 
 Vá em **Visão Geral** e confira se os novos dispositivos aparecem com os valores sendo atualizados (corrente em A, potência em W, energia em kWh). Ligue e desligue uma tomada pelo painel para confirmar que o controle remoto está funcionando.
